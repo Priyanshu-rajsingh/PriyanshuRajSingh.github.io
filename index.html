@@ -3,552 +3,114 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Professional certificates and credentials portfolio" />
-  <title>Certificates — Your Name</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <!-- Playfair Display: editorial serif for headings | Syne: geometric sans for UI -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <meta name="description" content="Priyanshu Raj Singh — Certifications & Achievements Portfolio" />
+  <title>Priyanshu Raj Singh · Certifications</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- Accessibility: skip to main content -->
-  <a href="#main" class="skip-link">Skip to certificates</a>
-
-  <!-- ══════════════════════════════════════════
-       NOISE TEXTURE OVERLAY (pure CSS, no img)
-       ══════════════════════════════════════════ -->
-  <div class="noise" aria-hidden="true"></div>
-
-  <!-- ══════════════════════════════════════════
-       HEADER
-       ══════════════════════════════════════════ -->
-  <header class="hdr" role="banner">
-    <div class="hdr__inner wrap">
-
-      <!-- Logo / name -->
-      <a href="#" class="hdr__logo" aria-label="Go to top">
-        <span class="hdr__logo-mark" aria-hidden="true">✦</span>
-        <span class="hdr__logo-name">Your Name</span>
-      </a>
-
-      <!-- Stats strip -->
-      <div class="hdr__stats" aria-label="Certificate statistics">
-        <span class="stat">
-          <span class="stat__n" id="js-total">12</span>
-          <span class="stat__l">Total</span>
-        </span>
-        <span class="stat__divider" aria-hidden="true"></span>
-        <span class="stat">
-          <span class="stat__n" id="js-visible">12</span>
-          <span class="stat__l">Showing</span>
-        </span>
+  <!-- ===== HERO ===== -->
+  <header class="hero" role="banner">
+    <div class="hero__noise"></div>
+    <div class="hero__content">
+      <p class="hero__eyebrow">Portfolio</p>
+      <h1 class="hero__name">Priyanshu<br>Raj Singh</h1>
+      <p class="hero__subtitle">Certifications &amp; Achievements</p>
+      <div class="hero__stats" aria-label="Summary statistics">
+        <div class="stat">
+          <span class="stat__num" id="totalCount">0</span>
+          <span class="stat__label">Credentials</span>
+        </div>
+        <div class="stat">
+          <span class="stat__num" id="categoryCount">0</span>
+          <span class="stat__label">Categories</span>
+        </div>
+        <div class="stat">
+          <span class="stat__num">2024–26</span>
+          <span class="stat__label">Span</span>
+        </div>
       </div>
-
-      <!-- Search -->
-      <div class="hdr__search" role="search">
-        <label for="js-search" class="sr-only">Search certificates</label>
-        <svg class="hdr__search-icon" viewBox="0 0 20 20" fill="none"
-             stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-          <circle cx="8.5" cy="8.5" r="5.5"/><line x1="13.5" y1="13.5" x2="18" y2="18"/>
-        </svg>
-        <input id="js-search" type="search" placeholder="Search…" autocomplete="off" />
-        <button class="hdr__search-clear" id="js-clear" aria-label="Clear search" hidden>✕</button>
-      </div>
-
     </div>
+    <a href="#certificates" class="hero__scroll" aria-label="Scroll to certificates">
+      <span class="hero__scroll-line"></span>
+      <span class="hero__scroll-text">scroll</span>
+    </a>
   </header>
 
-  <!-- ══════════════════════════════════════════
-       HERO
-       ══════════════════════════════════════════ -->
-  <section class="hero" aria-labelledby="hero-heading">
-    <div class="hero__bg" aria-hidden="true">
-      <div class="hero__blob hero__blob--a"></div>
-      <div class="hero__blob hero__blob--b"></div>
-      <div class="hero__lines"></div>
+  <!-- ===== FILTER BAR ===== -->
+  <nav class="filter-bar" aria-label="Filter by category" id="certificates">
+    <div class="filter-bar__inner">
+      <button class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
+      <!-- Dynamically injected by JS -->
     </div>
-    <div class="hero__body wrap">
-      <p class="hero__kicker">Portfolio</p>
-      <h1 class="hero__title" id="hero-heading">
-        Certificates &amp;<br /><em>Credentials</em>
-      </h1>
-      <p class="hero__sub">
-        A living record of skills earned — courses, professional certifications,
-        and specialisations across tech, design, and beyond.
-      </p>
-    </div>
-  </section>
+  </nav>
 
-  <!-- ══════════════════════════════════════════
-       FILTER BAR
-       ══════════════════════════════════════════ -->
-  <div class="filterbar" role="navigation" aria-label="Filter by category">
-    <div class="filterbar__inner wrap">
-      <div class="filterbar__track" id="js-filters" role="list">
-        <button class="pill pill--active" data-filter="all"
-                role="listitem" aria-pressed="true">All</button>
-        <button class="pill" data-filter="development"
-                role="listitem" aria-pressed="false">Development</button>
-        <button class="pill" data-filter="data"
-                role="listitem" aria-pressed="false">Data &amp; AI</button>
-        <button class="pill" data-filter="cloud"
-                role="listitem" aria-pressed="false">Cloud</button>
-        <button class="pill" data-filter="design"
-                role="listitem" aria-pressed="false">Design</button>
-        <button class="pill" data-filter="management"
-                role="listitem" aria-pressed="false">Management</button>
-        <button class="pill" data-filter="security"
-                role="listitem" aria-pressed="false">Security</button>
+  <!-- ===== SEARCH ===== -->
+  <div class="search-wrap">
+    <label for="searchInput" class="sr-only">Search certificates</label>
+    <input
+      type="search"
+      id="searchInput"
+      class="search-input"
+      placeholder="Search certificates…"
+      aria-label="Search certificates"
+    />
+    <span class="search-icon" aria-hidden="true">⌕</span>
+  </div>
+
+  <!-- ===== GRID ===== -->
+  <main class="grid-section" id="main-content">
+    <div class="cert-grid" id="certGrid" role="list">
+      <!-- Cards injected by JS -->
+    </div>
+    <p class="no-results" id="noResults" hidden aria-live="polite">
+      No certificates match your search.
+    </p>
+  </main>
+
+  <!-- ===== MODAL ===== -->
+  <div
+    class="modal-overlay"
+    id="modalOverlay"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modalTitle"
+    hidden
+  >
+    <div class="modal">
+      <button class="modal__close" id="modalClose" aria-label="Close">✕</button>
+      <span class="modal__badge" id="modalCategory"></span>
+      <h2 class="modal__title" id="modalTitle"></h2>
+      <p class="modal__issuer" id="modalIssuer"></p>
+      <div class="modal__meta">
+        <div class="modal__meta-item">
+          <span class="modal__meta-label">Issued</span>
+          <span class="modal__meta-value" id="modalDate"></span>
+        </div>
+        <div class="modal__meta-item" id="modalExpiryRow">
+          <span class="modal__meta-label">Valid Until</span>
+          <span class="modal__meta-value" id="modalExpiry"></span>
+        </div>
+        <div class="modal__meta-item" id="modalIdRow">
+          <span class="modal__meta-label">Cert ID</span>
+          <span class="modal__meta-value modal__cert-id" id="modalCertId"></span>
+        </div>
       </div>
+      <p class="modal__desc" id="modalDesc"></p>
     </div>
   </div>
 
-  <!-- ══════════════════════════════════════════
-       MAIN CERTIFICATE GRID
-       ══════════════════════════════════════════ -->
-  <main id="main">
-    <div class="grid wrap" id="js-grid" aria-label="Certificates">
-
-      <!-- ════════════════════════════════════════
-           HOW TO USE THIS TEMPLATE
-           ════════════════════════════════════════
-           Each <article> = one certificate card.
-
-           Required data-* on <article>:
-             data-category  → matches a filter pill
-             data-title     → used by search
-             data-desc      → used by search
-
-           To attach a certificate file:
-             data-file="assets/certs/filename.jpg"   (image: shown in lightbox)
-             data-file="assets/certs/filename.pdf"   (PDF: opened in new tab)
-             data-filetype="image" | "pdf"
-
-           .card__thumb: optional preview thumbnail
-             Replace the SVG placeholder with:
-             <img src="assets/certs/thumb.jpg" alt="" />
-
-           Replace ALL placeholder text with your real info.
-           ════════════════════════════════════════ -->
-
-      <!-- ── 01 ── -->
-      <article class="card" data-category="development"
-               data-title="Full-Stack Web Development"
-               data-desc="HTML CSS JavaScript React Node.js REST APIs deployment"
-               data-file="assets/certs/cert-01.jpg"
-               data-filetype="image">
-        <div class="card__thumb" aria-hidden="true">
-          <!-- Replace with: <img src="assets/certs/cert-01.jpg" alt="" /> -->
-          <svg viewBox="0 0 80 56" fill="none"><rect width="80" height="56" rx="6" fill="#1a1f2e"/>
-          <rect x="10" y="10" width="60" height="6" rx="2" fill="#2a3145"/>
-          <rect x="10" y="22" width="42" height="4" rx="2" fill="#2a3145"/>
-          <rect x="10" y="32" width="55" height="3" rx="1.5" fill="#1e2535"/>
-          <rect x="10" y="39" width="38" height="3" rx="1.5" fill="#1e2535"/>
-          <circle cx="63" cy="40" r="8" fill="#4f46e5" opacity=".7"/>
-          <text x="60" y="44" font-size="9" fill="#fff" font-family="serif">✓</text></svg>
-        </div>
-        <div class="card__body">
-          <span class="card__cat" data-cat="development">Development</span>
-          <h2 class="card__title">Full-Stack Web Development</h2>
-          <p class="card__desc">
-            Comprehensive program covering modern front-end and back-end technologies,
-            REST APIs, and deployment using cloud services.
-          </p>
-        </div>
-        <div class="card__foot">
-          <time class="card__date" datetime="2024-03">Mar 2024</time>
-          <div class="card__actions">
-            <button class="btn-view" aria-label="View Full-Stack Web Development certificate">
-              View
-            </button>
-          </div>
-        </div>
-      </article>
-
-      <!-- ── 02 ── -->
-      <article class="card" data-category="data"
-               data-title="Machine Learning Specialization"
-               data-desc="Python TensorFlow neural networks supervised unsupervised reinforcement learning"
-               data-file="assets/certs/cert-02.jpg"
-               data-filetype="image">
-        <div class="card__thumb" aria-hidden="true">
-          <svg viewBox="0 0 80 56" fill="none"><rect width="80" height="56" rx="6" fill="#0f1720"/>
-          <circle cx="40" cy="28" r="14" stroke="#0ea5e9" stroke-width="1.5" opacity=".5"/>
-          <circle cx="40" cy="28" r="7" fill="#0ea5e9" opacity=".4"/>
-          <circle cx="40" cy="28" r="3" fill="#0ea5e9"/>
-          <line x1="26" y1="28" x2="33" y2="28" stroke="#0ea5e9" stroke-width="1" opacity=".6"/>
-          <line x1="47" y1="28" x2="54" y2="28" stroke="#0ea5e9" stroke-width="1" opacity=".6"/>
-          <line x1="40" y1="14" x2="40" y2="21" stroke="#0ea5e9" stroke-width="1" opacity=".6"/>
-          <line x1="40" y1="35" x2="40" y2="42" stroke="#0ea5e9" stroke-width="1" opacity=".6"/></svg>
-        </div>
-        <div class="card__body">
-          <span class="card__cat" data-cat="data">Data &amp; AI</span>
-          <h2 class="card__title">Machine Learning Specialization</h2>
-          <p class="card__desc">
-            Three-course specialization on supervised, unsupervised, and reinforcement
-            learning with hands-on TensorFlow projects.
-          </p>
-        </div>
-        <div class="card__foot">
-          <time class="card__date" datetime="2024-06">Jun 2024</time>
-          <div class="card__actions">
-            <button class="btn-view" aria-label="View Machine Learning Specialization certificate">View</button>
-          </div>
-        </div>
-      </article>
-
-      <!-- ── 03 ── -->
-      <article class="card" data-category="cloud"
-               data-title="AWS Certified Solutions Architect"
-               data-desc="AWS cloud architecture IAM S3 EC2 VPC distributed systems"
-               data-file="assets/certs/cert-03.pdf"
-               data-filetype="pdf">
-        <div class="card__thumb" aria-hidden="true">
-          <svg viewBox="0 0 80 56" fill="none"><rect width="80" height="56" rx="6" fill="#18130a"/>
-          <path d="M20 36 Q40 16 60 36" stroke="#f59e0b" stroke-width="2" fill="none" opacity=".6"/>
-          <path d="M26 33 Q40 20 54 33" stroke="#f59e0b" stroke-width="1.5" fill="none" opacity=".4"/>
-          <circle cx="40" cy="36" r="3" fill="#f59e0b"/>
-          <rect x="34" y="39" width="12" height="3" rx="1.5" fill="#f59e0b" opacity=".4"/></svg>
-        </div>
-        <div class="card__body">
-          <span class="card__cat" data-cat="cloud">Cloud</span>
-          <h2 class="card__title">AWS Certified Solutions Architect</h2>
-          <p class="card__desc">
-            Associate-level certification for designing scalable, fault-tolerant
-            distributed architectures on Amazon Web Services.
-          </p>
-        </div>
-        <div class="card__foot">
-          <time class="card__date" datetime="2024-09">Sep 2024</time>
-          <div class="card__actions">
-            <button class="btn-view btn-view--pdf" aria-label="View AWS certificate PDF">
-              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 2h6l4 4v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z"/><polyline points="10 2 10 6 14 6"/></svg>
-              Open PDF
-            </button>
-          </div>
-        </div>
-      </article>
-
-      <!-- ── 04 ── -->
-      <article class="card" data-category="design"
-               data-title="UX Design Professional Certificate"
-               data-desc="UX research wireframing Figma prototyping user testing empathise define ideate"
-               data-file="assets/certs/cert-04.jpg"
-               data-filetype="image">
-        <div class="card__thumb" aria-hidden="true">
-          <svg viewBox="0 0 80 56" fill="none"><rect width="80" height="56" rx="6" fill="#061410"/>
-          <rect x="18" y="14" width="20" height="28" rx="4" fill="#10b981" opacity=".25" stroke="#10b981" stroke-width="1"/>
-          <rect x="42" y="20" width="20" height="22" rx="4" fill="#10b981" opacity=".15" stroke="#10b981" stroke-width="1" stroke-dasharray="3 2"/>
-          <circle cx="28" cy="28" r="4" fill="#10b981" opacity=".7"/>
-          <line x1="38" y1="28" x2="42" y2="28" stroke="#10b981" stroke-width="1.5" opacity=".5"/></svg>
-        </div>
-        <div class="card__body">
-          <span class="card__cat" data-cat="design">Design</span>
-          <h2 class="card__title">UX Design Professional Certificate</h2>
-          <p class="card__desc">
-            Seven-course Google program covering the full UX design process — empathise,
-            define, ideate, prototype, and test with Figma.
-          </p>
-        </div>
-        <div class="card__foot">
-          <time class="card__date" datetime="2023-12">Dec 2023</time>
-          <div class="card__actions">
-            <button class="btn-view" aria-label="View UX Design certificate">View</button>
-          </div>
-        </div>
-      </article>
-
-      <!-- ── 05 ── -->
-      <article class="card" data-category="development"
-               data-title="Python for Everybody Specialization"
-               data-desc="Python data structures web scraping SQL databases visualization"
-               data-file="assets/certs/cert-05.jpg"
-               data-filetype="image">
-        <div class="card__thumb" aria-hidden="true">
-          <svg viewBox="0 0 80 56" fill="none"><rect width="80" height="56" rx="6" fill="#160a1e"/>
-          <path d="M32 14 C26 14 22 18 22 24 C22 30 26 32 32 32 L34 32 L34 36 L46 36 L46 32 L48 32 C54 32 58 30 58 24 C58 18 54 14 48 14 Z" stroke="#8b5cf6" stroke-width="1.5" fill="none" opacity=".6"/>
-          <circle cx="30" cy="22" r="2" fill="#8b5cf6"/>
-          <circle cx="50" cy="30" r="2" fill="#fbbf24"/></svg>
-        </div>
-        <div class="card__body">
-          <span class="card__cat" data-cat="development">Development</span>
-          <h2 class="card__title">Python for Everybody</h2>
-          <p class="card__desc">
-            Five-course University of Michigan specialization covering Python fundamentals,
-            data structures, APIs, and database integration with SQL.
-          </p>
-        </div>
-        <div class="card__foot">
-          <time class="card__date" datetime="2023-08">Aug 2023</time>
-          <div class="card__actions">
-            <button class="btn-view" aria-label="View Python for Everybody certificate">View</button>
-          </div>
-        </div>
-      </article>
-
-      <!-- ── 06 ── -->
-      <article class="card" data-category="management"
-               data-title="Project Management Professional (PMP)"
-               data-desc="Agile Scrum risk management leadership stakeholder project lifecycle"
-               data-file="assets/certs/cert-06.pdf"
-               data-filetype="pdf">
-        <div class="card__thumb" aria-hidden="true">
-          <svg viewBox="0 0 80 56" fill="none"><rect width="80" height="56" rx="6" fill="#150a0a"/>
-          <circle cx="40" cy="28" r="16" stroke="#ef4444" stroke-width="1.5" fill="none" opacity=".4"/>
-          <path d="M40 16 L43 25 L52 25 L45 31 L48 40 L40 34 L32 40 L35 31 L28 25 L37 25 Z" fill="#ef4444" opacity=".5"/>
-          </svg>
-        </div>
-        <div class="card__body">
-          <span class="card__cat" data-cat="management">Management</span>
-          <h2 class="card__title">Project Management Professional (PMP)</h2>
-          <p class="card__desc">
-            PMI's globally recognised certification demonstrating expertise in leading
-            projects using predictive and agile methodologies.
-          </p>
-        </div>
-        <div class="card__foot">
-          <time class="card__date" datetime="2024-01">Jan 2024</time>
-          <div class="card__actions">
-            <button class="btn-view btn-view--pdf" aria-label="View PMP certificate PDF">
-              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 2h6l4 4v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z"/><polyline points="10 2 10 6 14 6"/></svg>
-              Open PDF
-            </button>
-          </div>
-        </div>
-      </article>
-
-      <!-- ── 07 ── -->
-      <article class="card" data-category="security"
-               data-title="CompTIA Security+"
-               data-desc="cybersecurity network security threats vulnerabilities cryptography identity access"
-               data-file="assets/certs/cert-07.jpg"
-               data-filetype="image">
-        <div class="card__thumb" aria-hidden="true">
-          <svg viewBox="0 0 80 56" fill="none"><rect width="80" height="56" rx="6" fill="#091010"/>
-          <path d="M40 12 L55 18 L55 30 C55 38 48 44 40 46 C32 44 25 38 25 30 L25 18 Z" stroke="#14b8a6" stroke-width="1.5" fill="none" opacity=".5"/>
-          <path d="M34 28 L38 32 L46 24" stroke="#14b8a6" stroke-width="2" stroke-linecap="round" opacity=".8"/></svg>
-        </div>
-        <div class="card__body">
-          <span class="card__cat" data-cat="security">Security</span>
-          <h2 class="card__title">CompTIA Security+</h2>
-          <p class="card__desc">
-            Industry-standard baseline certification covering network security, threats,
-            vulnerabilities, identity management, and cryptography fundamentals.
-          </p>
-        </div>
-        <div class="card__foot">
-          <time class="card__date" datetime="2024-04">Apr 2024</time>
-          <div class="card__actions">
-            <button class="btn-view" aria-label="View CompTIA Security+ certificate">View</button>
-          </div>
-        </div>
-      </article>
-
-      <!-- ── 08 ── -->
-      <article class="card" data-category="data"
-               data-title="Google Data Analytics Certificate"
-               data-desc="SQL R Tableau data cleaning analysis visualisation BigQuery spreadsheets"
-               data-file="assets/certs/cert-08.jpg"
-               data-filetype="image">
-        <div class="card__thumb" aria-hidden="true">
-          <svg viewBox="0 0 80 56" fill="none"><rect width="80" height="56" rx="6" fill="#080e18"/>
-          <rect x="14" y="38" width="8" height="10" rx="1" fill="#4285F4" opacity=".7"/>
-          <rect x="26" y="30" width="8" height="18" rx="1" fill="#EA4335" opacity=".7"/>
-          <rect x="38" y="22" width="8" height="26" rx="1" fill="#FBBC04" opacity=".7"/>
-          <rect x="50" y="14" width="8" height="34" rx="1" fill="#34A853" opacity=".7"/>
-          <polyline points="18,36 30,28 42,20 54,12" stroke="white" stroke-width="1.5" stroke-dasharray="2 2" opacity=".4"/></svg>
-        </div>
-        <div class="card__body">
-          <span class="card__cat" data-cat="data">Data &amp; AI</span>
-          <h2 class="card__title">Google Data Analytics Certificate</h2>
-          <p class="card__desc">
-            Eight-course professional certificate covering the data analysis lifecycle,
-            SQL, R programming, Tableau, and BigQuery.
-          </p>
-        </div>
-        <div class="card__foot">
-          <time class="card__date" datetime="2023-10">Oct 2023</time>
-          <div class="card__actions">
-            <button class="btn-view" aria-label="View Google Data Analytics certificate">View</button>
-          </div>
-        </div>
-      </article>
-
-      <!-- ── 09 ── -->
-      <article class="card" data-category="cloud"
-               data-title="Microsoft Azure Fundamentals (AZ-900)"
-               data-desc="Azure cloud fundamentals services pricing SLA management governance"
-               data-file="assets/certs/cert-09.pdf"
-               data-filetype="pdf">
-        <div class="card__thumb" aria-hidden="true">
-          <svg viewBox="0 0 80 56" fill="none"><rect width="80" height="56" rx="6" fill="#07101a"/>
-          <path d="M26 38 L38 14 L52 28 L44 28 L52 38 Z" fill="#0078d4" opacity=".6"/>
-          <path d="M20 38 L32 38 L26 28 Z" fill="#0078d4" opacity=".3"/></svg>
-        </div>
-        <div class="card__body">
-          <span class="card__cat" data-cat="cloud">Cloud</span>
-          <h2 class="card__title">Microsoft Azure Fundamentals</h2>
-          <p class="card__desc">
-            AZ-900 certification validating foundational knowledge of cloud concepts,
-            Azure core services, pricing, and service-level agreements.
-          </p>
-        </div>
-        <div class="card__foot">
-          <time class="card__date" datetime="2023-11">Nov 2023</time>
-          <div class="card__actions">
-            <button class="btn-view btn-view--pdf" aria-label="View Azure Fundamentals PDF">
-              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 2h6l4 4v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z"/><polyline points="10 2 10 6 14 6"/></svg>
-              Open PDF
-            </button>
-          </div>
-        </div>
-      </article>
-
-      <!-- ── 10 ── -->
-      <article class="card" data-category="development"
-               data-title="Meta Front-End Developer Certificate"
-               data-desc="React JavaScript HTML CSS responsive design accessibility testing Bootstrap"
-               data-file="assets/certs/cert-10.jpg"
-               data-filetype="image">
-        <div class="card__thumb" aria-hidden="true">
-          <svg viewBox="0 0 80 56" fill="none"><rect width="80" height="56" rx="6" fill="#080d18"/>
-          <ellipse cx="40" cy="28" rx="20" ry="8" stroke="#61DAFB" stroke-width="1.5" fill="none" opacity=".5"/>
-          <ellipse cx="40" cy="28" rx="20" ry="8" stroke="#61DAFB" stroke-width="1.5" fill="none" opacity=".5" transform="rotate(60 40 28)"/>
-          <ellipse cx="40" cy="28" rx="20" ry="8" stroke="#61DAFB" stroke-width="1.5" fill="none" opacity=".5" transform="rotate(120 40 28)"/>
-          <circle cx="40" cy="28" r="3" fill="#61DAFB"/></svg>
-        </div>
-        <div class="card__body">
-          <span class="card__cat" data-cat="development">Development</span>
-          <h2 class="card__title">Meta Front-End Developer</h2>
-          <p class="card__desc">
-            Nine-course Meta certificate covering HTML, CSS, JavaScript, React,
-            responsive design, accessibility, and professional testing practices.
-          </p>
-        </div>
-        <div class="card__foot">
-          <time class="card__date" datetime="2024-05">May 2024</time>
-          <div class="card__actions">
-            <button class="btn-view" aria-label="View Meta Front-End Developer certificate">View</button>
-          </div>
-        </div>
-      </article>
-
-      <!-- ── 11 ── -->
-      <article class="card" data-category="data"
-               data-title="IBM Data Science Professional Certificate"
-               data-desc="Python Jupyter pandas NumPy matplotlib scikit-learn data visualization machine learning"
-               data-file="assets/certs/cert-11.pdf"
-               data-filetype="pdf">
-        <div class="card__thumb" aria-hidden="true">
-          <svg viewBox="0 0 80 56" fill="none"><rect width="80" height="56" rx="6" fill="#060b12"/>
-          <rect x="16" y="16" width="48" height="28" rx="3" stroke="#be185d" stroke-width="1.2" fill="none" opacity=".4"/>
-          <line x1="16" y1="26" x2="64" y2="26" stroke="#be185d" stroke-width=".8" opacity=".3"/>
-          <text x="20" y="23" font-size="6" fill="#be185d" opacity=".8" font-family="monospace">import pandas as pd</text>
-          <text x="20" y="33" font-size="5" fill="#9ca3af" opacity=".6" font-family="monospace">df = pd.read_csv(…)</text>
-          <text x="20" y="40" font-size="5" fill="#9ca3af" opacity=".5" font-family="monospace">df.describe()</text></svg>
-        </div>
-        <div class="card__body">
-          <span class="card__cat" data-cat="data">Data &amp; AI</span>
-          <h2 class="card__title">IBM Data Science Professional</h2>
-          <p class="card__desc">
-            Ten-course IBM program covering the full data science workflow — Python,
-            Jupyter, pandas, visualisation, and applied machine learning.
-          </p>
-        </div>
-        <div class="card__foot">
-          <time class="card__date" datetime="2024-07">Jul 2024</time>
-          <div class="card__actions">
-            <button class="btn-view btn-view--pdf" aria-label="View IBM Data Science PDF">
-              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 2h6l4 4v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z"/><polyline points="10 2 10 6 14 6"/></svg>
-              Open PDF
-            </button>
-          </div>
-        </div>
-      </article>
-
-      <!-- ── 12 ── -->
-      <article class="card" data-category="management"
-               data-title="Agile with Atlassian Jira"
-               data-desc="Jira Agile Scrum Kanban sprint planning backlog retrospective Atlassian"
-               data-file="assets/certs/cert-12.jpg"
-               data-filetype="image">
-        <div class="card__thumb" aria-hidden="true">
-          <svg viewBox="0 0 80 56" fill="none"><rect width="80" height="56" rx="6" fill="#090e1a"/>
-          <path d="M40 12 C40 12 52 20 52 30 C52 36.6 46.6 42 40 42" stroke="#2684FF" stroke-width="2" fill="none" stroke-linecap="round" opacity=".7"/>
-          <path d="M40 12 C40 12 28 20 28 30 C28 36.6 33.4 42 40 42" stroke="#2684FF" stroke-width="2" fill="none" stroke-linecap="round" opacity=".4"/>
-          <circle cx="40" cy="12" r="3" fill="#2684FF"/>
-          <circle cx="40" cy="42" r="3" fill="#2684FF" opacity=".5"/></svg>
-        </div>
-        <div class="card__body">
-          <span class="card__cat" data-cat="management">Management</span>
-          <h2 class="card__title">Agile with Atlassian Jira</h2>
-          <p class="card__desc">
-            Coursera course on Agile methodologies — Scrum, Kanban, sprint planning,
-            backlog management, and retrospectives using Jira.
-          </p>
-        </div>
-        <div class="card__foot">
-          <time class="card__date" datetime="2024-02">Feb 2024</time>
-          <div class="card__actions">
-            <button class="btn-view" aria-label="View Agile with Jira certificate">View</button>
-          </div>
-        </div>
-      </article>
-
-      <!-- ════ ADD MORE CARDS ABOVE THIS LINE ════ -->
-
-    </div><!-- /grid -->
-
-    <!-- Empty state -->
-    <div class="empty" id="js-empty" hidden aria-live="polite">
-      <div class="empty__icon" aria-hidden="true">⊘</div>
-      <p class="empty__msg">No certificates match. Try a different filter or keyword.</p>
-      <button class="empty__reset" id="js-reset">Clear filters</button>
-    </div>
-
-  </main>
-
-  <!-- ══════════════════════════════════════════
-       FOOTER
-       ══════════════════════════════════════════ -->
-  <footer class="ftr" role="contentinfo">
-    <div class="ftr__inner wrap">
-      <p class="ftr__copy">
-        © <span id="js-year"></span> Your Name ·
-        <a href="https://github.com/yourusername" target="_blank" rel="noopener">GitHub</a>
-      </p>
-      <p class="ftr__made">Made with care ✦ no frameworks</p>
-    </div>
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer" role="contentinfo">
+    <p>© 2026 Priyanshu Raj Singh &mdash; All credentials are genuine and verifiable.</p>
+    <p class="footer__hint">
+      <!-- How to add more certificates: open certificates.js and append an object to the CERTIFICATES array -->
+      To add new certificates, edit <code>certificates.js</code> and append a new entry to the array.
+    </p>
   </footer>
 
-  <!-- ══════════════════════════════════════════
-       LIGHTBOX — image viewer
-       ══════════════════════════════════════════ -->
-  <div class="lb-overlay" id="js-lb-overlay" aria-hidden="true"></div>
-  <dialog class="lb" id="js-lb" aria-label="Certificate viewer" aria-modal="true">
-    <header class="lb__hdr">
-      <p class="lb__title" id="js-lb-title"></p>
-      <button class="lb__close" id="js-lb-close" aria-label="Close viewer">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-             aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-      </button>
-    </header>
-    <div class="lb__body">
-      <img class="lb__img" id="js-lb-img" src="" alt="" />
-    </div>
-    <footer class="lb__foot">
-      <a class="lb__dl" id="js-lb-dl" href="#" download aria-label="Download certificate">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-             aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-        <polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        Download
-      </a>
-    </footer>
-  </dialog>
-
-  <script src="app.js"></script>
+  <!-- DATA FILE — edit certificates.js to add/remove certificates -->
+  <script src="certificates.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>
